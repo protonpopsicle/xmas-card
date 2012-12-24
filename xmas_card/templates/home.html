@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Merry Christmas!</title>
+  <meta name="description" content="Merry Christmas!">
+  <meta name="author" content="Scott Meisburger">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">
+  <script src="{{ STATIC_URL }}js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+  <span class="xmas-config" data-msg="{{ msg }}" data-speed="{{ speed }}" data-num-cols="{{ numCols }}"></span>
+  <table class="xmas"></table>
+  <img class="wires" src="{{ STATIC_URL }}img/wires.png" />
+  <img class="maple" src="{{ STATIC_URL }}img/maple3.png" alt="Maple" />
+  <script src="{{ STATIC_URL }}js/behavior.js"></script>
+</body>
+</html>
