@@ -5,8 +5,6 @@
 // namespace
 var xmas = {
 	'numRows': 5,
-	'numCols': 40,
-	'speed': 80,
 	'emptyFrame': [],
 	'message': [],
 };

@@ -152,6 +152,6 @@ LOGGING = {
 }
 
 # xmas_card settings
-XMAS_MSG = 'Merry Christmas !!!'
+XMAS_MSG = 'think'
 XMAS_SPEED = 80
 XMAS_NUM_COLS = 40
