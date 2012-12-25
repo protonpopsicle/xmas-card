@@ -7,6 +7,8 @@ var xmas = {
 	'numRows': 5,
 	'numCols': 40,
 	'speed': 80,
+	'emptyFrame': [],
+	'message': [],
 };
 
 xmas.alphabet = {
@@ -215,11 +217,6 @@ xmas.alphabet = {
 	],
 };
 
-// rename this
-xmas.readSymbols = function() {
-	return $('.xmas-config').data('msg').toLowerCase().split('');
-}
-
 // list comprehension knockoff
 xmas.arrayComp = function(callback, length) {
 	var anArray = [];
@@ -236,20 +233,20 @@ xmas.compileEmptyFrame = function() {
 }
 
 xmas.compileRow = function(symbols, i) {
-	var val = symbols.reduce(function(a, b) {
+	return symbols.reduce(function(a, b) {
 		try {
 			return a.concat(xmas.alphabet[b][i]).concat([0]);
 		} catch(err) {
 			return a; 
 		}
 	}, xmas.emptyFrame); 
-
-	return val;
 }
 
 xmas.compileMessage = function() {
+	var symbols = $('.xmas-config').data('msg').toLowerCase().split('');
+
 	return xmas.arrayComp(function(i) {
-		return xmas.compileRow(xmas.readSymbols(), i);
+		return xmas.compileRow(symbols, i);
 	}, xmas.numRows);
 }
 
@@ -285,7 +282,12 @@ xmas.update = function(message) {
 	}
 }
 
-xmas.setTheTable = function() {
+xmas.init = function() {
+	xmas.numCols = parseInt($('.xmas-config').data('numCols'));
+	xmas.speed = parseInt($('.xmas-config').data('speed'));
+	xmas.emptyFrame = xmas.compileEmptyFrame();
+	xmas.message = xmas.compileMessage(); 
+
 	$('table.xmas').append(xmas.arrayComp(function(i) {
 		return '<tr></td>';
 	}, xmas.numRows));
@@ -296,12 +298,11 @@ xmas.setTheTable = function() {
 }
 
 $(document).ready(function() {
-	xmas.speed = parseInt($('.xmas-config').data('speed'));
-	xmas.numCols = parseInt($('.xmas-config').data('numCols'));
-	xmas.setTheTable();
-	xmas.emptyFrame = xmas.compileEmptyFrame();
-	var message = xmas.compileMessage(); 
-	var timer = setInterval(function() {
-		xmas.update(message);
+	xmas.init();
+});
+
+$(window).load(function() {
+	setInterval(function() {
+		xmas.update(xmas.message);
 	}, xmas.speed);
 });
