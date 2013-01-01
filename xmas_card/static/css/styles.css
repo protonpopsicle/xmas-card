@@ -36,11 +36,12 @@ table.xmas {
 
 table.xmas td {
 	padding: 7px;
-	background: black url('../img/off.png');
+	background-image: url('../img/on_off.png');
+	background-position: 0% 0%;
 }
 
 table.xmas td.on {
-	background: black url('../img/on.png');
+	background-position: 0% 15px;
 }
 
 span.xmas-config {
