@@ -308,6 +308,14 @@ xmas.arrayComp = function(callback, length) {
     return anArray;
 }
 
+http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript#answer-901144
+xmas.getParameterByName = function(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 xmas.compileEmptyFrame = function() {
     return xmas.arrayComp(function(i) {
 	return 0;
@@ -324,8 +332,8 @@ xmas.compileRow = function(symbols, i) {
     }, xmas.emptyFrame); 
 }
 
-xmas.compileMessage = function() {
-    var symbols = $('.xmas-config').data('msg').toLowerCase().split('');
+xmas.compileMessage = function(messageText) {
+    var symbols = messageText.toLowerCase().split('');
 
     return xmas.arrayComp(function(i) {
 	return xmas.compileRow(symbols, i);
@@ -365,10 +373,11 @@ xmas.update = function(message) {
 }
 
 xmas.init = function() {
-    xmas.numCols = parseInt($('.xmas-config').data('numCols'));
-    xmas.speed = parseInt($('.xmas-config').data('speed'));
+    var messageText = xmas.getParameterByName('message') || 'Merry X-Mas';
+    xmas.numCols = parseInt(xmas.getParameterByName('numCols')) || 50;
+    xmas.speed = parseInt(xmas.getParameterByName('speed')) || 100;
     xmas.emptyFrame = xmas.compileEmptyFrame();
-    xmas.message = xmas.compileMessage(); 
+    xmas.message = xmas.compileMessage(messageText); 
 
     $('table.xmas').append(xmas.arrayComp(function(i) {
 	return '<tr></td>';

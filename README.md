@@ -1,9 +1,13 @@
-#xmas-card
+xmas-card
+===
 
-###My 2013 Holiday Card
+Demo
+---
 
-[behavior.js](xmas_card/static/js/behavior.js) contains LED dot-matrix display emulator
+[Live Demo](?message=Merry%20X-Mas!&numCols=40&speed=80)
 
-To send a card:
-- modify GET params (msg, speed & cols)
-- use [bitly](https://bitly.com/) to obfuscate url
+See [behavior.js](xmas_card/static/js/behavior.js) for dot-matrix display code. Minimal punctuation support (!)
+
+To send as card:
+- modify GET params (`message`, `speed` and `numCols`)
+- use [bitly](https://bitly.com/) to obfuscate URL and send to a friend!
