@@ -373,8 +373,8 @@ xmas.update = function(message) {
 }
 
 xmas.init = function() {
-    var messageText = xmas.getParameterByName('message') || 'Merry X-Mas';
-    xmas.numCols = parseInt(xmas.getParameterByName('numCols')) || 50;
+    var messageText = xmas.getParameterByName('msg') || 'Merry X-Mas';
+    xmas.numCols = parseInt(xmas.getParameterByName('cols')) || 50;
     xmas.speed = parseInt(xmas.getParameterByName('speed')) || 100;
     xmas.emptyFrame = xmas.compileEmptyFrame();
     xmas.message = xmas.compileMessage(messageText); 
