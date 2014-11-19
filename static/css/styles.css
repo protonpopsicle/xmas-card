@@ -1,0 +1,49 @@
+body {
+    background: black;	
+}
+
+table {
+    border-collapse:collapse;
+}
+
+table, th, td {
+    padding: 0;
+    margin: 0;
+}
+
+img.maple {
+    display: block;
+    margin: 0 auto;
+    margin-top: -40px;
+}
+
+img.wires {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    left: 10px;
+    z-index: -1;
+    margin-top: 30px;
+    position: relative;
+    left: 12px;
+}
+
+table.xmas {
+    margin: 0 auto;
+    position: relative;
+    top: 30px;
+}
+
+table.xmas td {
+    padding: 7px;
+    background-image: url('../img/on_off.png');
+    background-position: 0% 0%;
+}
+
+table.xmas td.on {
+    background-position: 0% 15px;
+}
+
+span.xmas-config {
+    display: none;
+}
