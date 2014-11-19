@@ -1,10 +1,10 @@
 xmas-card
 ===
 
-Demo
+Live Demo
 ---
 
-[Live Demo](?message=Merry%20X-Mas!&numCols=40&speed=80)
+[http://scottmeisburger.com/xmas-card/?message=Merry%20X-Mas!&numCols=40&speed=80](http://scottmeisburger.com/xmas-card/?message=Merry%20X-Mas!&numCols=40&speed=80)
 
 See [behavior.js](xmas_card/static/js/behavior.js) for dot-matrix display code. Minimal punctuation support (!)
 
